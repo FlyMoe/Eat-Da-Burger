@@ -1,26 +1,34 @@
 
-var conn = require('./connection.js');
+var connection = require('./connection.js');
+var promise = require('promise');
 
 var orm = {
 
 	// SELECT * FROM burgers
     selectAll: function(table) {
-        var queryString = 'SELECT * FROM ' + table;
-        connection.query(queryString, function(err, result) {
-            console.log(result);
+        return new promise(function(resolve,reject){
+            var queryString = 'SELECT * FROM ' + table;
+            connection.query(queryString, function(err, result) {
+                if (err){
+                    reject(err);
+                } else { 
+                    resolve(result);
+               //console.log(result);
+                }
+            });
         });
     },
-    // INSERT INTO burgers (burger_name, devoured, date) VALUES (burger_name, devoured, date);
-    insertOne: function(tabelToInsert, burger_name,) {
-        var queryString = 'INSERT INTO ' + tabelToInsert + ' (burger_name, devoured, date) VALUES (' + burger_name + ', ' + devoured + ', ' + date + ');';
+    // INSERT INTO burgers (burger_name, devoured, date) VALUES (?, ?, ?);
+    insertOne: function(tabelToInsert, burger_name, devoured, date) {
+        var queryString = 'INSERT INTO ' + tabelToInsert + ' (burger_name, devoured, date) VALUES (' + burger_name + ', ' + devoured + ', ' + date + ')';
         console.log(queryString)
         connection.query(queryString, function(err, result) {
             console.log(result);
         });
     },
-
-    updateOne: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-        var queryString = 'SELECT ' + tableOneCol + ', COUNT(' + tableOneCol + ') AS count FROM ' + tableOne + ' LEFT JOIN ' + tableTwo + ' ON ' + tableTwo + '.' + tableTwoForeignKey + '= ' + tableOne + '.id GROUP BY ' + tableOneCol + ' ORDER BY count desc LIMIT 1';
+    // UPDATE burgers SET burger_name = ? WHERE id = ?
+    updateOne: function(table, burger_name, id) {
+        var queryString = 'UPDATE ' + table + ' SET burger_name = ' + burger_name + ' WHERE id=' + id;
         connection.query(queryString, function(err, result) {
             console.log(result);
         });

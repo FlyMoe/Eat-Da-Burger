@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title>Eat-Da-Burger</title>
+  </head>
+  <body>
+
+
+  <div id="main-content" class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4"><h1>Eat Da Burger</h1></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4"><img id="burger-img" src="/img/burger.png"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p>Create a burger below in the text field.  Upon submission, your burger will be stored.</p>
+      <p>THEN, you eat the burger!</p>
+  </div>
+
+  <div class="row">
+    <div id="to-eat" class="col-sm-4 col-sm-offset-1">
+      createdBurgers();
+    </div>
+
+    <div id="eaten" class="col-sm-4 col-sm-offset-2">
+      eatenBurgers();
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4"><h3>Create A Burger</h3></div>
+  </div>
+  {{!-- Form should send a post command to the server --}}
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4"><h5>Burger Name</h5></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <form class="create-form" method="POST" action="/create">
+      <div class="form-group">
+        <textarea type="text" id="name" name="burger" rows="3" cols="30"></textarea>
+      </form>
+      </div>
+      <button type="submit" id="submit">Create your burger!</button>
+  </div>
+</div>
+
+  </body>
+</HTML>
+
+<script type="text/javascript">
+  $('#submit').on('click', function(){
+    createdBurgers()
+    $('#to-eat').append('<div class="row">'+
+              '<div class="col-sm-12">'+
+              '<p>'+res.body.id+'. '+res.body.name+'</p> <button type="submit" class="devour'+res.body.id+'">Devour it!</button>'+
+              '</div>'+
+              '</div');
+  });
+  $()
+</script>

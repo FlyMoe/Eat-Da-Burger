@@ -6,7 +6,7 @@ var methodOverride = require('method-override')
 var app = express();
 
 // Connection to the database
-var connection = require('./burger/models/burger.js');
+var connection = require('./models/burger.js');
 
 var exphbs = require('express-handlebars');
 
@@ -14,6 +14,8 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+// View the public directory
+app.use(express.static('public'));
 
 // Sets an initial port. We'll use this later in our listener
 var PORT = process.env.PORT || 3000; 
@@ -26,7 +28,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 // ROUTER
-require('./burger/controllers/burgers_controllers.js')(app); 
+require('./controllers/burgers_controllers.js')(app); 
 
 // LISTENER
 app.listen(PORT, function() {

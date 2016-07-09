@@ -1,0 +1,91 @@
+
+
+body {
+	margin: 0 auto;	
+	background: #ffcc5c;
+	text-align: center;	
+}
+
+p {
+	max-width: 50%;
+}
+
+button {
+	width: auto;
+	height: auto;
+	border-radius: 5px;
+
+}
+
+h1 {
+	color: #fd0606;
+}
+
+.submit {
+	position: relative;
+	top: 20px;
+	right: 170px;
+}
+
+.addBurger {
+	width: 100%;
+	margin: 0px 0px 0px 50px;
+	float: left;
+	position: relative;
+}
+
+.text {
+	color: blue;
+	position: relative;
+	top: 20px;
+	left: 350px;
+}
+
+.container {
+ 	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+ }
+
+ .notEaten {
+	/*width: 50%;*/
+	height: auto;
+ 	margin: 0px 0px 0px 50px;
+	text-align: left;
+	float: left;
+}
+.not_eaten {
+	background-color: white;
+	height: 50px;
+	width: 400px;
+	text-align: center;
+	padding-top: 40px;
+}
+
+.eaten {
+	width: 50%;
+ 	margin: 0px 0px 0px 50px;
+	text-align: left;
+	float: right;
+}
+
+.devoured {
+	background-color: white;
+	height: 20px;
+	width: auto;
+	text-align: center;
+	/*padding-top: 40px;*/
+}
+
+.devour {
+	margin-left: 500px;
+	margin-bottom: 30px;
+	width: auto;	
+	height: auto;
+	border-radius: 5px;
+	float: auto;
+}
+
+#burger {
+	width: 300px;
+}

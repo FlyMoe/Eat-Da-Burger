@@ -10,9 +10,13 @@ var connection = require('./models/burger.js');
 
 var exphbs = require('express-handlebars');
 
-
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+// Handlebars.registerHelper("inc", function(value, options)
+// {
+//     return parseInt(value) + 1;
+// });
 
 // View the public directory
 app.use(express.static('public'));

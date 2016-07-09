@@ -38,7 +38,7 @@ h1 {
 	color: blue;
 	position: relative;
 	top: 20px;
-	left: 350px;
+	left: 310px;
 }
 
 .container {
@@ -63,7 +63,7 @@ h1 {
 }
 
 .eaten {
-	width: 50%;
+	width: 40%;
  	margin: 0px 0px 0px 50px;
 	text-align: left;
 	float: right;
